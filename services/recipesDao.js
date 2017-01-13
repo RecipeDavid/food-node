@@ -6,7 +6,7 @@ exports.findAll = function(req, res) {
             res.send(err);
         }
         //res.send(recipes);
-        res.render('index', { title: 'Express', recipes: recipes });
+        res.render('recipes', { title: 'Express', recipes: recipes });
     });
 }
 exports.findFiltered = function(filter, req, res) {
@@ -18,7 +18,7 @@ exports.findFiltered = function(filter, req, res) {
             res.send(err);
         }
         //res.send(recipes);
-        res.render('index', { title: 'Express', recipes: recipes });
+        res.render('recipes', { title: 'Express', recipes: recipes });
     });
 }
 

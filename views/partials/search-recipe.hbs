@@ -1,0 +1,18 @@
+<h3>{{name}}</h3>
+
+<div class="steps">
+    <p>Steps:</p>
+    <ul>
+        {{#each steps}}
+            <li>{{no}} - {{text}}</li>
+        {{/each}}
+    </ul>
+</div>
+<div class="ingredients">
+    <p>Ingredients:</p>
+    <ul>
+        {{#each ingredients}}
+            <li>{{amount}} {{measure}} of {{name}}</li>
+        {{/each}}
+    </ul>
+</div>
