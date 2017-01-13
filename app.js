@@ -1,4 +1,5 @@
 var express = require('express');
+var hbs = require('express-hbs');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -13,8 +14,13 @@ var recipes = require('./routes/recipes');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/layouts'));
 app.set('view engine', 'hbs');
+app.engine('hbs', hbs.express4({
+  defaultLayout: './views/layout.hbs',
+  partialsDir: './views/partials',
+  layoutsDir: './views/layouts'
+}))
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
