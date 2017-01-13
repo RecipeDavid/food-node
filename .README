@@ -1,0 +1,5 @@
+Press Ctrl+' to open a terminal, in this first terminal, type 'npm run watch-sass'
+
+Click the plus icon to load a new terminal, in this new terminal type 'npm start'
+
+All sass compilationa and any other files (js, hbs etc) will work, you just have to refresh the browser.
