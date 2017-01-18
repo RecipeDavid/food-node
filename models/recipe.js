@@ -8,6 +8,7 @@ var recipeSchema = new Schema({
         measure: {type:String, enum:['grams','ml','cups','tsp','tbsp','unit']},
         amount: Number
     }],
+    likes: Number,
     prepTime: Number,
     cookTime: Number,
     servingsMin: Number,

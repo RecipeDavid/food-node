@@ -38,9 +38,9 @@ exports.findFiltered = function(filter, req, res) {
 }
 
 exports.testData = function(req,res) {
-    createTestData('Chicken and chips','sugar','/images/image-test-1.jpg');
-    createTestData('Generic Meat Pie','milk','/images/image-test-2.jpg');
-    createTestData('Cheesy Pie','cheese','/images/noodles-image.jpg');
+    createTestData('Chicken and chips','sugar','/images/image-test-1.jpg', 120);
+    createTestData('Generic Meat Pie','milk','/images/image-test-2.jpg', 300);
+    createTestData('Cheesy Pie','cheese','/images/noodles-image.jpg', 98);
     
     res.send("triggered");
 }
@@ -58,7 +58,7 @@ exports.resetData = function(req,res) {
 }
 
 
-function createTestData(name, ingredient, url) {
+function createTestData(name, ingredient, url, likes) {
     var recipe = new Recipe({
         name: name,
         ingredients: [
@@ -66,6 +66,7 @@ function createTestData(name, ingredient, url) {
             {name: 'bread', measure: 'unit', amount: 3},
             {name: 'butter', measure: 'grams', amount: 3}
         ],
+        likes: likes,
         prepTime: 10,
         cookTime: 50,
         servingsMin: 2,
