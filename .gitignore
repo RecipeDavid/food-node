@@ -27,5 +27,5 @@ build/Release
 node_modules
 public/css
 
-# Debug log from npm - test edit 2
+# Debug log from npm
 npm-debug.log
