@@ -1,11 +1,26 @@
 var Recipe = require('../models/recipe.js');
 
+exports.findOne = function(id, req, res) {
+    var query = {'_id': id};
+    console.log(query);
+    Recipe.findOne(query, function(err, recipe) {
+        if(err) {
+            res.send(err);
+        }
+        console.log(recipe);
+        res.render('recipe', { title: 'Express', recipe: recipe });
+    });
+}
+
 exports.findAll = function(req, res) {
     Recipe.find(function(err, recipes) {
         if(err) {
             res.send(err);
         }
         //res.send(recipes);
+        console.log("--- recipes --- START")
+        console.log(recipes);
+        console.log("--- recipes --- START")
         res.render('recipes', { title: 'Express', recipes: recipes });
     });
 }
@@ -23,14 +38,27 @@ exports.findFiltered = function(filter, req, res) {
 }
 
 exports.testData = function(req,res) {
-    createTestData('Chicken and chips','sugar');
-    createTestData('Generic Meat Pie','milk');
+    createTestData('Chicken and chips','sugar','/images/image-test-1.jpg');
+    createTestData('Generic Meat Pie','milk','/images/image-test-2.jpg');
+    createTestData('Cheesy Pie','cheese','/images/noodles-image.jpg');
     
     res.send("triggered");
 }
+exports.resetData = function(req,res) {
+    
+    Recipe.remove("{}", function(err, recipes) {
+        if(err) {
+            res.send(err);
+        }
+        //res.send(recipes);
+        res.send("reset");
+    });
+    
+    
+}
 
 
-function createTestData(name, ingredient) {
+function createTestData(name, ingredient, url) {
     var recipe = new Recipe({
         name: name,
         ingredients: [
@@ -53,7 +81,7 @@ function createTestData(name, ingredient) {
         sourceUrl: 'http://www.bbc.co.uk/good-recipe',
         submittedBy: 'Dan',
         approve: true,
-        imageUrl: null
+        imageUrl: url
     });
 
     console.log(recipe);

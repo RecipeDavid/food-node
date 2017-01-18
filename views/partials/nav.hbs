@@ -1,1 +1,61 @@
-<div>NAV</div>
+<nav id="navigationBar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header col-xs-12">
+                <a id="menuModalOpenLeft" href="javascript:void(0)">
+                    <span class="nav-filters"><span class="glyphicon glyphicon-filter"></span>Filter</span>
+                </a>
+                <a id="menuModalOpen" href="javascript:void(0)">
+                    <span class="nav-menu">Menu<span class="glyphicon glyphicon-option-vertical"></span></span>
+                </a>
+                <a class="navbar-brand" href="#">My Food Site</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div id="rightModal" class="modal modal-animate fade rightModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">Close</button>
+                <h3 class="modal-title">Menu</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search recipes...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="#">
+                            <h4><span class="glyphicon glyphicon-user"></span>My Account</h4>
+                        </a>
+                        <a href="#">
+                            <h4><span class="glyphicon glyphicon-pencil"></span>Contact</h4>
+                        </a>
+                        <a href="#">
+                            <h4><span class="glyphicon glyphicon-th-list"></span>Submit A Recipe</h4>
+                        </a>
+                        <a href="#">
+                            <h4><span class="glyphicon glyphicon-star"></span>About Me</h4>
+                        </a>
+                        <a href="#">
+                            <h4><span class="glyphicon glyphicon-thumbs-up"></span>Buy Me A Coffee</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

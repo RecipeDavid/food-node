@@ -1,3 +1,4 @@
+<!--
 <h3>{{name}}</h3>
 
 <div class="steps">
@@ -16,3 +17,24 @@
         {{/each}}
     </ul>
 </div>
+-->
+<a href="/recipe/{{_id}}">
+    <div class="grid-item tile">
+        <div class="tile-background">
+            <div class="image-overlay-top"><h5>{{name}}</h5></div>
+            <img class="img-responsive" src="{{imageUrl}}" />
+            <div class="tile-desc">
+                <p>Description of the soup goes here, yada yada yada, this is going to be capped at a certain amount of characters which I haven't decided on yet.</p>
+            </div>
+            <div class="tile-footer">
+                <div class="heart-total">
+                    <span class="glyphicon glyphicon-heart"></span><span>112</span>
+                </div>
+                <input type="checkbox" class="hidden" id="like-{{_id}}">
+                <label for="like-{{_id}}" class="button-like">
+                    <span class="glyphicon glyphicon-heart"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</a>

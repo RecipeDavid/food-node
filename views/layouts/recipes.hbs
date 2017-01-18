@@ -1,6 +1,31 @@
-<h1>{{title}}</h1>
-<p>Heading</p>
 
-{{#each recipes}}
-    {{> search-recipe}}
-{{/each}}
+
+<div id="recipeList" class="container-fluid recipe-container">
+    <div class="grid">
+        {{#each recipes}}
+            {{> search-recipe}}
+        {{/each}}
+    </div>
+</div>
+
+
+
+<div id="leftModal" class="modal modal-animate fade leftModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">Close</button>
+                <h4 class="modal-title">Filters</h4>
+            </div>
+            <div class="modal-body">
+                <p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default">Apply Filter</button>
+            </div>
+        </div>
+
+    </div>
+</div>

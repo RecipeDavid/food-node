@@ -13,11 +13,21 @@ router.get('/', function(req, res, next) {
   } else {
     recipesDao.findFiltered(filter, req,res);
   }
-
-
 });
+
+
+router.get('/recipe/:id', function(req, res, next) {
+  var id = req.param("id");
+  console.log("id: " + id);
+  recipesDao.findOne(id,req,res);
+});
+
+
 router.get('/testdata', function(req, res, next) {
   recipesDao.testData(req,res);
+});
+router.get('/resetdata', function(req, res, next) {
+  recipesDao.resetData(req,res);
 });
 
 module.exports = router;
