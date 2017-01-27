@@ -5,6 +5,7 @@ var recipeSchema = new Schema({
     name: String,
     ingredients: [{
         name: String,
+        iconUrl: String,
         measure: {type:String, enum:['grams','ml','cups','tsp','tbsp','unit']},
         amount: Number
     }],

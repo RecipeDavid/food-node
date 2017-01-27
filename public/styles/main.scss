@@ -21,6 +21,121 @@ body {
     }
 }
 
+.filter-check {
+  border-radius: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #eee;
+  height: 30px;
+  color: #fff;
+  position: relative;
+  margin-bottom: 7px;
+  .filter-name {
+    display: inline-block;
+    height: 100%;
+    width: calc(100% - 62px);
+    span {
+      display:block;
+      padding: 6px 0;
+      text-align: center;
+      color: #777;
+    }
+  }
+  label {
+    height: 100%;
+    width: 30px;
+    display:inline-block;
+    z-index: 11;
+    position: relative;
+    &:hover {
+      cursor: pointer;
+    }
+    span {
+      padding: 6px 0;
+      text-align: center;
+      display:block;
+    }
+  }
+  input {
+    display: none;
+  }
+  .filter-include {
+    background-color: $blue;
+    float:left;
+    border-right: 1px solid #fff;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    span {
+        &:after {
+            font-size: 14px;
+            color: #fff;
+            content: "+";
+        }
+    }
+  }
+  .filter-exclude {
+    background-color: rgba(194,59,34,1);
+    float: right;
+    border-left: 1px solid #fff;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    span {
+        &:after {
+            font-size: 14px;
+            color: #fff;
+            content:"-";
+        }
+    }
+  }
+  .overlay {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    animation: cubic-bezier(.36,.01,.44,.96);
+    transition: 0.8s;
+    z-index: 10;
+    span {
+      padding: 6px 0;
+      display:block;
+      text-align: center;
+    }
+  }
+  .green-back {
+    background-color: #8bb7e2;
+    left: -100%;
+    span {
+      padding-right: 62px;
+    }
+  }
+  .red-back {
+    background-color: #cf6450;
+    right: -100%;
+    span {
+      padding-left: 62px;
+    }
+  }
+  .input-excluded:checked ~ .red-back {
+    right: 31px;
+  }
+  .input-included:checked ~ .green-back {
+    left: 31px;
+  }
+.input-included:checked ~ .filter-include {
+    span {
+        &:after {
+            content:"x";
+        }
+    }
+}
+.input-excluded:checked ~ .filter-exclude {
+    span {
+        &:after {
+            content:"x";
+        }
+    }
+}
+}
 
 .no-pad {
     padding: 0 !important;
@@ -94,7 +209,7 @@ label {
                 }
             }
 
-            img {
+            > img {
                 max-width: 275px;
                 width: 100%;
             }
@@ -104,6 +219,15 @@ label {
             }
 
             .tile-desc {
+                color: #555;
+                .recipe-times {
+                    margin-top: 10px;
+                    font-size: 13px;
+                    span {
+                        font-size: 11px;
+                        color: $blue;
+                    }
+                }
                 padding: 0 15px;
 
                 p {
@@ -116,6 +240,22 @@ label {
                     font-size: 13px;
                     margin-bottom: 5px;
                     text-align: center;
+                }
+                .ingredients-list {
+                    text-transform: capitalize;
+                }
+                ul {
+                    padding: 0;
+
+                    li {
+                        width: 48%;
+                        display: inline-block;
+                        list-style: none;
+                        margin-bottom: 5px;
+                            span {
+                                margin-right: 5px;
+                         }
+                    }
                 }
             }
 
@@ -156,9 +296,6 @@ label {
                         display: block;
                     }
 
-                    .glyphicon {
-                    }
-
                     .button-like {
                         font-size: 2em;
                         color: #aab8c2;
@@ -167,15 +304,9 @@ label {
                     }
                 }
 
-                input[type=checkbox]:checked + .button-pin {
-                    background-color: red;
-                    color: #fff;
-                    border-bottom-left-radius: 5px;
-                }
-
                 input[type=checkbox]:checked + .button-like {
                     border-bottom-right-radius: 5px;
-                    color: #ff5f6b;
+                    color: $pink;
                     will-change: font-size;
                     -moz-animation: star 0.4s cubic-bezier(.17, .89, .32, 1.49);
                     -o-animation: star 0.4s cubic-bezier(.17, .89, .32, 1.49);
@@ -258,7 +389,43 @@ label {
 
             .modal-body {
                 max-height: calc(100vh - 125px);
-                overflow-y: scroll;
+                .nav-pills {
+                    width: 100%;
+                    font-size: 0;
+                    margin-bottom: 10px;
+                    li {
+                        width: 50%;
+                        text-align: center;
+                        font-size: 14px;
+                        margin-left: 0 !important;
+                        a {
+                        border-radius: 0;
+                        border: 1px solid #777;
+                        }
+                        &:first-of-type {
+                            a {
+                            border-top-left-radius: 2px;
+                            border-bottom-left-radius: 2px;
+                            }
+                        }
+                        &:last-of-type {
+                            a {
+                            border-top-right-radius: 2px;
+                            border-bottom-right-radius: 2px;
+                            }
+                        }
+                        &.active {
+                                a {
+                                    border: 1px solid $blue;
+                                    color: #fff !important;
+                                }
+                        }
+                    }
+                }
+                .panel-body {
+                    height: calc(100vh - 192px);
+                    overflow-y: scroll;
+                }
             }
         }
     }
@@ -282,9 +449,10 @@ label {
             border: none;
             padding: 10px;
             color: #777;
+            padding: 0;
 
             .modal-body {
-                overflow-y: auto;
+                
 
                 a {
                     color: #777;
@@ -356,6 +524,21 @@ label {
                     text-transform: uppercase;
                 }
             }
+            .modal-footer {
+                padding: 12px;
+                .filter-button {
+                    background-color: $blue;
+                    color: #fff;
+                    padding: 10px;
+                    width: 50%;
+                }
+                .clear-button {
+                    border: none;
+                    color: #777;
+                    padding: 12px;
+                    width: 48%;
+                }
+            }
         }
     }
 
@@ -410,7 +593,7 @@ label {
 @media (min-width: 1200px) {
     .rightModal, .leftModal {
         .modal-dialog {
-            width: 20%;
+            width: 30%;
         }
     }
 

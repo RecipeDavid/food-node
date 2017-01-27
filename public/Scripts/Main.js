@@ -36,3 +36,20 @@ $(document).ready(function () {
         $("#leftModal").modal();
     });
 });
+
+$("input:checkbox").on('click', function () {
+    var $box = $(this);
+    if ($box.is(":checked")) {
+        var group = "input:checkbox[name='" + $box.attr("name") + "']";
+        $(group).prop("checked", false);
+        $box.prop("checked", true);
+    } else {
+        $box.prop("checked", false);
+    }
+});
+
+$("#clearFilter").on("click", function () {
+    $(".input-excluded, .input-included").each(function () {
+        $(this).prop('checked', false);
+    });
+});

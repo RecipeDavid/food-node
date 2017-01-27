@@ -1,10 +1,6 @@
-
-
 <div id="recipeList" class="container-fluid recipe-container">
     <div class="grid">
-        {{#each recipes}}
-            {{> search-recipe}}
-        {{/each}}
+        {{#each recipes}} {{> search-recipe}} {{/each}}
     </div>
 </div>
 
@@ -20,13 +16,179 @@
                 <h4 class="modal-title">Filters</h4>
             </div>
             <div class="modal-body">
-                <p><a href="/">No filters</a></p>
-                <p><a href="/?filter=sugar">Filter sugar</a></p>
-                <p>Test filter</p>
-                <p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p><p>Test filter</p>
+                <ul class="nav nav-pills">
+                    <li class="active"><a href="#ingredientsTab" data-toggle="tab">Ingredients</a></li>
+                    <li><a href="#intoleranceTab" data-toggle="tab">Intolerance / Preference</a></li>
+                </ul>
+                <div class="panel-body no-pad">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="ingredientsTab">
+                            <div class="filter-check">
+                                <input class="input-included" id="sugarInc" type="checkbox" class="radio" value="1" name="sugarcheck" />
+                                <label for="sugarInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing sugar</span></div>
+                                <div class="filter-name"><span>Sugar</span></div>
+                                <input class="input-excluded" id="sugarExc" type="checkbox" class="radio" value="1" name="sugarcheck" />
+                                <label for="sugarExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no sugar</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="milkInc" type="checkbox" class="radio" value="1" name="milkcheck" />
+                                <label for="milkInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing milk</span></div>
+                                <div class="filter-name"><span>Milk</span></div>
+                                <input class="input-excluded" id="milkExc" type="checkbox" class="radio" value="1" name="milkcheck" />
+                                <label for="milkExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no milk</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="wheatInc" type="checkbox" class="radio" value="1" name="wheatcheck" />
+                                <label for="wheatInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing wheat</span></div>
+                                <div class="filter-name"><span>Wheat</span></div>
+                                <input class="input-excluded" id="wheatExc" type="checkbox" class="radio" value="1" name="wheatcheck" />
+                                <label for="wheatExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no wheat</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="soyInc" type="checkbox" class="radio" value="1" name="soycheck" />
+                                <label for="soyInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing soy</span></div>
+                                <div class="filter-name"><span>Soy</span></div>
+                                <input class="input-excluded" id="soyExc" type="checkbox" class="radio" value="1" name="soycheck" />
+                                <label for="soyExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no soy</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="cheeseInc" type="checkbox" class="radio" value="1" name="cheesecheck" />
+                                <label for="cheeseInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing cheese</span></div>
+                                <div class="filter-name"><span>Cheese</span></div>
+                                <input class="input-excluded" id="cheeseExc" type="checkbox" class="radio" value="1" name="cheesecheck" />
+                                <label for="cheeseExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no cheese</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="peanutsInc" type="checkbox" class="radio" value="1" name="peanutscheck" />
+                                <label for="peanutsInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing peanuts</span></div>
+                                <div class="filter-name"><span>Peanuts</span></div>
+                                <input class="input-excluded" id="peanutsExc" type="checkbox" class="radio" value="1" name="peanutscheck" />
+                                <label for="peanutsExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no peanuts</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="chickenInc" type="checkbox" class="radio" value="1" name="chickencheck" />
+                                <label for="chickenInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing chicken</span></div>
+                                <div class="filter-name"><span>Chicken</span></div>
+                                <input class="input-excluded" id="chickenExc" type="checkbox" class="radio" value="1" name="chickencheck" />
+                                <label for="chickenExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no chicken</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="porkInc" type="checkbox" class="radio" value="1" name="porkcheck" />
+                                <label for="porkInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing pork</span></div>
+                                <div class="filter-name"><span>Pork</span></div>
+                                <input class="input-excluded" id="porkExc" type="checkbox" class="radio" value="1" name="porkcheck" />
+                                <label for="porkExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no pork</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="mushroomsInc" type="checkbox" class="radio" value="1" name="mushroomscheck" />
+                                <label for="mushroomsInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing mushrooms</span></div>
+                                <div class="filter-name"><span>Mushrooms</span></div>
+                                <input class="input-excluded" id="mushroomsExc" type="checkbox" class="radio" value="1" name="mushroomscheck" />
+                                <label for="mushroomsExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no mushrooms</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="butterInc" type="checkbox" class="radio" value="1" name="buttercheck" />
+                                <label for="butterInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Recipes containing butter</span></div>
+                                <div class="filter-name"><span>butter</span></div>
+                                <input class="input-excluded" id="butterExc" type="checkbox" class="radio" value="1" name="buttercheck" />
+                                <label for="butterExc" class="filter-exclude"><span></span></label>
+                                <div class="overlay red-back"><span>Recipes with no butter</span></div>
+                            </div>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                            <p>Test filter</p>
+                        </div>
+                        <div class="tab-pane fade" id="intoleranceTab">
+                            <div class="filter-check">
+                                <input class="input-included" id="ibsInc" type="checkbox" class="radio" value="1" name="ibscheck" />
+                                <label for="ibsInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>IBS friendly</span></div>
+                                <div class="filter-name"><span>Low FODMAP (IBS)</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="nutInc" type="checkbox" class="radio" value="1" name="nutcheck" />
+                                <label for="nutInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Free from nuts</span></div>
+                                <div class="filter-name"><span>No nuts</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="vegInc" type="checkbox" class="radio" value="1" name="vegcheck" />
+                                <label for="vegInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Vegetarian friendly</span></div>
+                                <div class="filter-name"><span>Vegetarian</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="veganInc" type="checkbox" class="radio" value="1" name="vegancheck" />
+                                <label for="veganInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Vegan friendly</span></div>
+                                <div class="filter-name"><span>Vegan</span></div>
+                            </div>
+                            <div class="filter-check">
+                                <input class="input-included" id="ketoInc" type="checkbox" class="radio" value="1" name="ketocheck" />
+                                <label for="ketoInc" class="filter-include"><span></span></label>
+                                <div class="overlay green-back"><span>Low carb recipes</span></div>
+                                <div class="filter-name"><span>Keto</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default">Apply Filter</button>
+                <button type="button" id="clearFilter" class="btn btn-default clear-button pull-left">Clear Filters</button>
+                <button type="button" class="btn btn-default filter-button">Apply Filters</button>
             </div>
         </div>
 

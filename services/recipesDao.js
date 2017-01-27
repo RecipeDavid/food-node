@@ -38,9 +38,9 @@ exports.findFiltered = function(filter, req, res) {
 }
 
 exports.testData = function(req,res) {
-    createTestData('Chicken and chips','sugar','/images/image-test-1.jpg', 120);
-    createTestData('Generic Meat Pie','milk','/images/image-test-2.jpg', 300);
-    createTestData('Cheesy Pie','cheese','/images/noodles-image.jpg', 98);
+    createTestData('Something Frosted','Sugar','/images/image-test-1.jpg', 120);
+    createTestData('Some Soup','Milk','/images/image-test-2.jpg', 300);
+    createTestData('Noodles','Wheat','/images/noodles-image.jpg', 98);
     
     res.send("triggered");
 }
@@ -62,9 +62,10 @@ function createTestData(name, ingredient, url, likes) {
     var recipe = new Recipe({
         name: name,
         ingredients: [
-            {name: ingredient, measure: 'cups', amount: 3},
-            {name: 'bread', measure: 'unit', amount: 3},
-            {name: 'butter', measure: 'grams', amount: 3}
+            {name: ingredient, measure: 'cups', amount: 3, iconUrl: '/icons/icon-test.png'},
+            {name: 'salt', measure: 'tsp', amount: 2, iconUrl: '/icons/icon-test.png'},
+            {name: 'butter', measure: 'grams', amount: 3, iconUrl: '/icons/icon-test.png'},
+            {name: 'eggs', measure: 'unit', amount: 2, iconUrl: '/icons/icon-test.png'}
         ],
         likes: likes,
         prepTime: 10,

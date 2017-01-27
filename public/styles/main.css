@@ -9,6 +9,89 @@ body {
     padding-right: 23px;
     padding-left: 7px; }
 
+.filter-check {
+  border-radius: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #eee;
+  height: 30px;
+  color: #fff;
+  position: relative;
+  margin-bottom: 7px; }
+  .filter-check .filter-name {
+    display: inline-block;
+    height: 100%;
+    width: calc(100% - 62px); }
+    .filter-check .filter-name span {
+      display: block;
+      padding: 6px 0;
+      text-align: center;
+      color: #777; }
+  .filter-check label {
+    height: 100%;
+    width: 30px;
+    display: inline-block;
+    z-index: 11;
+    position: relative; }
+    .filter-check label:hover {
+      cursor: pointer; }
+    .filter-check label span {
+      padding: 6px 0;
+      text-align: center;
+      display: block; }
+  .filter-check input {
+    display: none; }
+  .filter-check .filter-include {
+    background-color: #3c8ce4;
+    float: left;
+    border-right: 1px solid #fff;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px; }
+    .filter-check .filter-include span:after {
+      font-size: 14px;
+      color: #fff;
+      content: "+"; }
+  .filter-check .filter-exclude {
+    background-color: #c23b22;
+    float: right;
+    border-left: 1px solid #fff;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px; }
+    .filter-check .filter-exclude span:after {
+      font-size: 14px;
+      color: #fff;
+      content: "-"; }
+  .filter-check .overlay {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    animation: cubic-bezier(0.36, 0.01, 0.44, 0.96);
+    transition: 0.8s;
+    z-index: 10; }
+    .filter-check .overlay span {
+      padding: 6px 0;
+      display: block;
+      text-align: center; }
+  .filter-check .green-back {
+    background-color: #8bb7e2;
+    left: -100%; }
+    .filter-check .green-back span {
+      padding-right: 62px; }
+  .filter-check .red-back {
+    background-color: #cf6450;
+    right: -100%; }
+    .filter-check .red-back span {
+      padding-left: 62px; }
+  .filter-check .input-excluded:checked ~ .red-back {
+    right: 31px; }
+  .filter-check .input-included:checked ~ .green-back {
+    left: 31px; }
+  .filter-check .input-included:checked ~ .filter-include span:after {
+    content: "x"; }
+  .filter-check .input-excluded:checked ~ .filter-exclude span:after {
+    content: "x"; }
+
 .no-pad {
   padding: 0 !important; }
 
@@ -61,13 +144,20 @@ label {
         .recipe-container .tile .tile-background .image-overlay-top h5 {
           text-transform: uppercase;
           font-weight: bold; }
-      .recipe-container .tile .tile-background img {
+      .recipe-container .tile .tile-background > img {
         max-width: 275px;
         width: 100%; }
       .recipe-container .tile .tile-background h3 {
         display: inline-block; }
       .recipe-container .tile .tile-background .tile-desc {
+        color: #555;
         padding: 0 15px; }
+        .recipe-container .tile .tile-background .tile-desc .recipe-times {
+          margin-top: 10px;
+          font-size: 13px; }
+          .recipe-container .tile .tile-background .tile-desc .recipe-times span {
+            font-size: 11px;
+            color: #3c8ce4; }
         .recipe-container .tile .tile-background .tile-desc p {
           font-size: 12px;
           margin-top: 10px; }
@@ -76,6 +166,17 @@ label {
           font-size: 13px;
           margin-bottom: 5px;
           text-align: center; }
+        .recipe-container .tile .tile-background .tile-desc .ingredients-list {
+          text-transform: capitalize; }
+        .recipe-container .tile .tile-background .tile-desc ul {
+          padding: 0; }
+          .recipe-container .tile .tile-background .tile-desc ul li {
+            width: 48%;
+            display: inline-block;
+            list-style: none;
+            margin-bottom: 5px; }
+            .recipe-container .tile .tile-background .tile-desc ul li span {
+              margin-right: 5px; }
       .recipe-container .tile .tile-background .tile-footer {
         width: 100%;
         padding-left: 0;
@@ -110,10 +211,6 @@ label {
             color: #aab8c2;
             align-self: center;
             line-height: 10px; }
-        .recipe-container .tile .tile-background .tile-footer input[type=checkbox]:checked + .button-pin {
-          background-color: red;
-          color: #fff;
-          border-bottom-left-radius: 5px; }
         .recipe-container .tile .tile-background .tile-footer input[type=checkbox]:checked + .button-like {
           border-bottom-right-radius: 5px;
           color: #ff5f6b;
@@ -167,8 +264,31 @@ label {
 .leftModal .modal-dialog {
   float: left; }
   .leftModal .modal-dialog .modal-content .modal-body {
-    max-height: calc(100vh - 125px);
-    overflow-y: scroll; }
+    max-height: calc(100vh - 125px); }
+    .leftModal .modal-dialog .modal-content .modal-body .nav-pills {
+      width: 100%;
+      font-size: 0;
+      margin-bottom: 10px; }
+      .leftModal .modal-dialog .modal-content .modal-body .nav-pills li {
+        width: 50%;
+        text-align: center;
+        font-size: 14px;
+        margin-left: 0 !important; }
+        .leftModal .modal-dialog .modal-content .modal-body .nav-pills li a {
+          border-radius: 0;
+          border: 1px solid #777; }
+        .leftModal .modal-dialog .modal-content .modal-body .nav-pills li:first-of-type a {
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px; }
+        .leftModal .modal-dialog .modal-content .modal-body .nav-pills li:last-of-type a {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px; }
+        .leftModal .modal-dialog .modal-content .modal-body .nav-pills li.active a {
+          border: 1px solid #3c8ce4;
+          color: #fff !important; }
+    .leftModal .modal-dialog .modal-content .modal-body .panel-body {
+      height: calc(100vh - 192px);
+      overflow-y: scroll; }
 
 .rightModal, .leftModal {
   padding-right: 0 !important;
@@ -184,32 +304,31 @@ label {
       border-radius: 0;
       border: none;
       padding: 10px;
-      color: #777; }
-      .rightModal .modal-dialog .modal-content .modal-body, .leftModal .modal-dialog .modal-content .modal-body {
-        overflow-y: auto; }
-        .rightModal .modal-dialog .modal-content .modal-body a, .leftModal .modal-dialog .modal-content .modal-body a {
-          color: #777; }
-          .rightModal .modal-dialog .modal-content .modal-body a:hover, .leftModal .modal-dialog .modal-content .modal-body a:hover {
-            text-decoration: none; }
-            .rightModal .modal-dialog .modal-content .modal-body a:hover span, .leftModal .modal-dialog .modal-content .modal-body a:hover span {
-              color: #ff5f6b; }
-        .rightModal .modal-dialog .modal-content .modal-body h4, .leftModal .modal-dialog .modal-content .modal-body h4 {
-          padding: 15px 0;
-          border-bottom: 1px solid #e5e5e5;
-          margin: 0;
-          font-size: 1.3em; }
-          .rightModal .modal-dialog .modal-content .modal-body h4 span, .leftModal .modal-dialog .modal-content .modal-body h4 span {
-            padding-right: 15px;
-            color: #3c8ce4;
-            animation: cubic-bezier(0.36, 0.01, 0.44, 0.96);
-            transition: 0.4s; }
-        .rightModal .modal-dialog .modal-content .modal-body .input-group, .leftModal .modal-dialog .modal-content .modal-body .input-group {
-          padding-bottom: 20px;
-          border-bottom: 1px solid #e5e5e5; }
-          .rightModal .modal-dialog .modal-content .modal-body .input-group .btn, .leftModal .modal-dialog .modal-content .modal-body .input-group .btn {
-            background-color: #3c8ce4;
-            color: #fff;
-            border: 1px solid #3c8ce4; }
+      color: #777;
+      padding: 0; }
+      .rightModal .modal-dialog .modal-content .modal-body a, .leftModal .modal-dialog .modal-content .modal-body a {
+        color: #777; }
+        .rightModal .modal-dialog .modal-content .modal-body a:hover, .leftModal .modal-dialog .modal-content .modal-body a:hover {
+          text-decoration: none; }
+          .rightModal .modal-dialog .modal-content .modal-body a:hover span, .leftModal .modal-dialog .modal-content .modal-body a:hover span {
+            color: #ff5f6b; }
+      .rightModal .modal-dialog .modal-content .modal-body h4, .leftModal .modal-dialog .modal-content .modal-body h4 {
+        padding: 15px 0;
+        border-bottom: 1px solid #e5e5e5;
+        margin: 0;
+        font-size: 1.3em; }
+        .rightModal .modal-dialog .modal-content .modal-body h4 span, .leftModal .modal-dialog .modal-content .modal-body h4 span {
+          padding-right: 15px;
+          color: #3c8ce4;
+          animation: cubic-bezier(0.36, 0.01, 0.44, 0.96);
+          transition: 0.4s; }
+      .rightModal .modal-dialog .modal-content .modal-body .input-group, .leftModal .modal-dialog .modal-content .modal-body .input-group {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e5e5e5; }
+        .rightModal .modal-dialog .modal-content .modal-body .input-group .btn, .leftModal .modal-dialog .modal-content .modal-body .input-group .btn {
+          background-color: #3c8ce4;
+          color: #fff;
+          border: 1px solid #3c8ce4; }
       .rightModal .modal-dialog .modal-content .modal-header, .leftModal .modal-dialog .modal-content .modal-header {
         border-bottom: none; }
         .rightModal .modal-dialog .modal-content .modal-header .close, .leftModal .modal-dialog .modal-content .modal-header .close {
@@ -233,6 +352,18 @@ label {
             right: 0; }
         .rightModal .modal-dialog .modal-content .modal-header .modal-title, .leftModal .modal-dialog .modal-content .modal-header .modal-title {
           text-transform: uppercase; }
+      .rightModal .modal-dialog .modal-content .modal-footer, .leftModal .modal-dialog .modal-content .modal-footer {
+        padding: 12px; }
+        .rightModal .modal-dialog .modal-content .modal-footer .filter-button, .leftModal .modal-dialog .modal-content .modal-footer .filter-button {
+          background-color: #3c8ce4;
+          color: #fff;
+          padding: 10px;
+          width: 50%; }
+        .rightModal .modal-dialog .modal-content .modal-footer .clear-button, .leftModal .modal-dialog .modal-content .modal-footer .clear-button {
+          border: none;
+          color: #777;
+          padding: 12px;
+          width: 48%; }
   .rightModal.modal-animate.leftModal, .rightModal.modal-animate.rightModal, .leftModal.modal-animate.leftModal, .leftModal.modal-animate.rightModal {
     opacity: 1;
     transition: transform 0.6s ease-out; }
@@ -256,7 +387,7 @@ label {
 
 @media (min-width: 1200px) {
   .rightModal .modal-dialog, .leftModal .modal-dialog {
-    width: 20%; }
+    width: 30%; }
   .totalPriceSection {
     padding: 0 60px !important; } }
 
