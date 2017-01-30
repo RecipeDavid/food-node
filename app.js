@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/food');
+mongoose.connect('mongodb://app:Dave&DanDB1!@ds135089.mlab.com:35089/recipe-database');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var recipes = require('./routes/recipes');
