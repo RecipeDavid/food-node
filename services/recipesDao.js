@@ -12,28 +12,25 @@ exports.findOne = function(id, req, res) {
     });
 }
 
-exports.findAll = function(req, res) {
+exports.findAll = function(cb) {
     Recipe.find(function(err, recipes) {
         if(err) {
-            res.send(err);
+            cb(true);
         }
-        //res.send(recipes);
-        console.log("--- recipes --- START")
-        console.log(recipes);
-        console.log("--- recipes --- START")
-        res.render('recipes', { title: 'Express', recipes: recipes });
+        //console.log(recipes);
+        cb(null, recipes);
     });
 }
-exports.findFiltered = function(filter, req, res) {
-    console.log("filtered: " + filter)
+exports.findFiltered = function(filter, cb) {
+    console.log("filtered: " + filter);
     var query = {'ingredients.name':{'$ne': filter}};
     console.log(query);
     Recipe.find(query, function(err, recipes) {
         if(err) {
+            cb(true);
             res.send(err);
         }
-        //res.send(recipes);
-        res.render('recipes', { title: 'Express', recipes: recipes });
+        cb(null, recipes);
     });
 }
 
