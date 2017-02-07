@@ -10,6 +10,7 @@ mongoose.connect('mongodb://app:Dave&DanDB1!@ds135089.mlab.com:35089/recipe-data
 var index = require('./routes/index');
 var users = require('./routes/users');
 var recipes = require('./routes/recipes');
+var ingredients = require('./routes/ingredients');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/test', index);
 app.use('/users', users);
 app.use('/', recipes);
+app.use('/ingredients', ingredients);
 
 
 // catch 404 and forward to error handler

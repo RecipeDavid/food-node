@@ -6,7 +6,9 @@ var ingredientSchema = new Schema({
     fats: Number,
     carbs: Number,
     protein: Number,
-    calories: Number
+    calories: Number,
+    sugar: Number,
+    units: String
 });
 
 module.exports = mongoose.model('Ingredient', ingredientSchema);

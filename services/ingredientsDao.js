@@ -13,7 +13,13 @@ exports.findOne = function(name, cb) {
     });
 }
 
-exports.resetData = function(req,res) {
+exports.addIngredient = function(req,res) {
+    createIngredient('Wheat', 0, 30, 0, 0, 45, 'grams');
+    
+    res.send("Ingredient added");
+}
+
+exports.resetIngredients = function(req,res) {
     
     Ingredient.remove("{}", function(err, ingredients) {
         if(err) {
@@ -23,4 +29,24 @@ exports.resetData = function(req,res) {
     });
     
     
+}
+
+function createIngredient(name, fats, carbs, sugar, protein, calories, units) {
+    var ingredient = new Ingredient({
+        name: name,
+        fats: fats,
+        sugar: sugar,
+        protein: protein,
+        calories: calories,
+        carbs: carbs,
+        units: units
+    });
+
+    console.log(ingredient);
+
+    ingredient.save(function(err) {
+        if(err) {
+            console.log(err);
+        }
+    })
 }
