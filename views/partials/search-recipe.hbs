@@ -32,11 +32,11 @@
 <li><span class="glyphicon glyphicon-time"></span>Cook: {{cookTime}} minutes</li>
                 </ul>
             <h4>Contains:</h4>
-            <ul class="ingredients-list">
+            <div class="ingredients-list">
                 {{#each ingredients}}
-                <li><span><img src="{{iconUrl}}" /></span>{{name}}</li>
+                <span class="ingredient-name">{{name}}</span>
                 {{/each}}
-            </ul>
+            </div>
         </div>
         <div class="tile-footer">
             <div class="heart-total">

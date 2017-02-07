@@ -51,13 +51,20 @@ body {
       cursor: pointer;
     }
     span {
-      padding: 6px 0;
       text-align: center;
       display:block;
     }
   }
   input {
     display: none;
+  }
+  .filter-include, .filter-exclude {
+      span  {
+          &:after {
+            font-size: 19px;
+            color: #fff;
+          }
+      }
   }
   .filter-include {
     background-color: $blue;
@@ -67,8 +74,6 @@ body {
     border-bottom-left-radius: 2px;
     span {
         &:after {
-            font-size: 14px;
-            color: #fff;
             content: "+";
         }
     }
@@ -81,8 +86,6 @@ body {
     border-bottom-right-radius: 2px;
     span {
         &:after {
-            font-size: 14px;
-            color: #fff;
             content:"-";
         }
     }
@@ -243,6 +246,17 @@ label {
                 }
                 .ingredients-list {
                     text-transform: capitalize;
+                    .ingredient-name {
+                        padding-right: 5px;
+                        &:after {
+                            content: ",";
+                        }
+                        &:last-of-type {
+                            &:after {
+                                content: "";
+                            }
+                        }
+                    }
                 }
                 ul {
                     padding: 0;

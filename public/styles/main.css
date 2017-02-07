@@ -36,11 +36,13 @@ body {
     .filter-check label:hover {
       cursor: pointer; }
     .filter-check label span {
-      padding: 6px 0;
       text-align: center;
       display: block; }
   .filter-check input {
     display: none; }
+  .filter-check .filter-include span:after, .filter-check .filter-exclude span:after {
+    font-size: 19px;
+    color: #fff; }
   .filter-check .filter-include {
     background-color: #3c8ce4;
     float: left;
@@ -48,8 +50,6 @@ body {
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px; }
     .filter-check .filter-include span:after {
-      font-size: 14px;
-      color: #fff;
       content: "+"; }
   .filter-check .filter-exclude {
     background-color: #c23b22;
@@ -58,8 +58,6 @@ body {
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px; }
     .filter-check .filter-exclude span:after {
-      font-size: 14px;
-      color: #fff;
       content: "-"; }
   .filter-check .overlay {
     width: 100%;
@@ -168,6 +166,12 @@ label {
           text-align: center; }
         .recipe-container .tile .tile-background .tile-desc .ingredients-list {
           text-transform: capitalize; }
+          .recipe-container .tile .tile-background .tile-desc .ingredients-list .ingredient-name {
+            padding-right: 5px; }
+            .recipe-container .tile .tile-background .tile-desc .ingredients-list .ingredient-name:after {
+              content: ","; }
+            .recipe-container .tile .tile-background .tile-desc .ingredients-list .ingredient-name:last-of-type:after {
+              content: ""; }
         .recipe-container .tile .tile-background .tile-desc ul {
           padding: 0; }
           .recipe-container .tile .tile-background .tile-desc ul li {
