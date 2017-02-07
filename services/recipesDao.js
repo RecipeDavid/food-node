@@ -1,14 +1,15 @@
 var Recipe = require('../models/recipe.js');
 
-exports.findOne = function(id, req, res) {
+exports.findOne = function(id, cb) {
     var query = {'_id': id};
     console.log(query);
     Recipe.findOne(query, function(err, recipe) {
         if(err) {
             res.send(err);
+            cb(true);
         }
         console.log(recipe);
-        res.render('recipe', { title: 'Express', recipe: recipe });
+        cb(null, recipe);
     });
 }
 
